@@ -45,25 +45,6 @@ function renderServices(services) {
   `).join('');
 }
 
-// Fungsi untuk render Testimonials
-// function renderTestimonials(testimonials) {
-//     const list = document.querySelector('.testimonials-list');
-//     if (!list) return;
-//     list.innerHTML = testimonials.map(t => `
-//         <li class="testimonials-item" data-testimonials-item>
-//             <div class="content-card">
-//                 <figure class="testimonials-avatar-box">
-//                     <img src="${t.avatar}" alt="${t.name}" width="60" data-testimonials-avatar>
-//                 </figure>
-//                 <h4 class="h4 testimonials-item-title" data-testimonials-title>${t.name}</h4>
-//                 <div class="text" data-testimonials-text>
-//                     <p>${t.text}</p>
-//                 </div>
-//             </div>
-//         </li>
-//     `).join('');
-// }
-
 function renderEducation(education) {
   const list = document.querySelector('.edu-list');
   if (!list) return;
@@ -105,27 +86,66 @@ function renderSkills(skills) {
 }
 
 
-// --- FUNGSI PROYEK BARU DENGAN PERBAIKAN ---
+// --- FUNGSI PEMETAAN UNTUK FILTER BARU ---
+function getFilterCategory(projectType) {
+  const typeLower = projectType.toLowerCase();
 
+  if (typeLower.includes('web')) {
+    return 'web';
+  }
+  if (typeLower.includes('mobile')) {
+    return 'mobile';
+  }
+  if (typeLower.includes('games') || typeLower.includes('game')) {
+    return 'games';
+  }
+  
+  // Semua kategori lain akan jatuh ke 'other'
+  return 'other';
+}
+
+// Fungsi filter (akan dipanggil dari script.js atau di bawah)
+function filterFunc(selectedValue) {
+  const projectItems = document.querySelectorAll('.project-item');
+  projectItems.forEach(item => {
+    // Ambil nilai kategori dari data-category yang sudah dipetakan
+    const category = item.dataset.category ? item.dataset.category.toLowerCase() : ''; 
+    if (selectedValue === 'all' || category === selectedValue) {
+      item.style.display = 'block'; /* Biarkan display block, CSS global akan menangani grid */
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// --- FUNGSI PROYEK DENGAN PERBAIKAN TIMING ---
 function renderProjects(projects) {
   cachedProjects = projects;
   const list = document.querySelector('.project-list');
-  if (!list) return; // Pastikan elemen ada
+  if (!list) return;
 
-  list.innerHTML = projects.map(p => `
-    <li class="project-item" data-filter-item data-category="${p.type}" onclick="showProjectDetail('${p.name}')">
-      <figure class="project-img">
-        <div class="project-item-icon-box">
-          <ion-icon name="eye-outline"></ion-icon>
-        </div>
-        <img src="./assets/images/projek/${p.thumb}" alt="${p.name}" loading="lazy">
-      </figure>
-      <h3 class="project-title">${p.name}</h3>
-      <p class="project-category">${p.type}</p>
-    </li>
-  `).join('');
+  list.innerHTML = projects.map(p => {
+    // Panggil fungsi pemetaan untuk mendapatkan kategori yang benar
+    const filterCategory = getFilterCategory(p.type);
 
-  filterFunc('all');
+    return `
+      <li class="project-item" data-filter-item data-category="${filterCategory}" onclick="showProjectDetail('${p.name}')">
+        <figure class="project-img">
+          <div class="project-item-icon-box">
+            <ion-icon name="eye-outline"></ion-icon>
+          </div>
+          <img src="./assets/images/projek/${p.thumb}" alt="${p.name}" loading="lazy">
+        </figure>
+        <h3 class="project-title">${p.name}</h3>
+        <p class="project-category">${p.type}</p>
+      </li>
+    `;
+  }).join('');
+
+  // Perbaikan: Panggil filterFunc('all') dengan setTimeout(..., 0).
+  // Ini memastikan filter dijalankan SETELAH browser selesai menambahkan
+  // semua elemen LI ke dalam DOM, mengatasi masalah tampilan kosong di awal.
+  setTimeout(() => filterFunc('all'), 0);
 }
 
 function showProjectDetail(projectName) {
@@ -135,11 +155,10 @@ function showProjectDetail(projectName) {
     return;
   }
 
-  const projectListSection = document.querySelector('.portfolio .projects');
   const projectListUL = document.querySelector('.project-list');
   const filterList = document.querySelector('.filter-list');
   const filterSelectBox = document.querySelector('.filter-select-box');
-  const detailView = document.querySelector('.project-detail-view'); // Gunakan class baru
+  const detailView = document.querySelector('.project-detail-view');
 
   // Sembunyikan elemen daftar proyek dan filternya
   if (projectListUL) projectListUL.style.display = 'none';
@@ -252,7 +271,7 @@ function backToList() {
   const projectListUL = document.querySelector('.project-list');
   const filterList = document.querySelector('.filter-list');
   const filterSelectBox = document.querySelector('.filter-select-box');
-  const detailView = document.querySelector('.project-detail-view'); // Gunakan class baru
+  const detailView = document.querySelector('.project-detail-view');
 
   // Sembunyikan elemen detail proyek
   if (detailView) detailView.style.display = 'none';
@@ -262,17 +281,4 @@ function backToList() {
   if (filterList) filterList.style.display = 'flex'; // Tampilkan kembali filter
   if (filterSelectBox) filterSelectBox.style.display = 'block'; // Tampilkan kembali filter dropdown
   window.scrollTo(0, 0); // Gulir ke atas halaman saat kembali ke daftar
-}
-
-// Fungsi filter (akan dipanggil dari script.js)
-function filterFunc(selectedValue) {
-  const projectItems = document.querySelectorAll('.project-item');
-  projectItems.forEach(item => {
-    const category = item.dataset.category ? item.dataset.category.toLowerCase() : '';
-    if (selectedValue === 'all' || category === selectedValue) {
-      item.style.display = 'block'; /* Biarkan display block, CSS global akan menangani grid */
-    } else {
-      item.style.display = 'none';
-    }
-  });
 }

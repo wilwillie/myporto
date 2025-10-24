@@ -529,26 +529,33 @@
           </section>
         </article>
 
-        <article class="portfolio" data-page="portfolio">
-          <header>
-            <h2 class="h2 article-title">Portfolio</h2>
-          </header>
+<article class="portfolio" data-page="portfolio">
+    <header>
+      <h2 class="h2 article-title">Portfolio</h2>
+    </header>
 
-          <section class="projects">
-            <ul class="filter-list">
-              <li class="filter-item">
-                <button class="item-select active" data-filter-btn>All</button>
-              </li>
-              <li class="filter-item">
-                <button class="item-select" data-filter-btn>Web</button>
-              </li>
-              <li class="filter-item">
-                <button class="item-select" data-filter-btn>Mobile</button>
-              </li>
-              <li class="filter-item">
-                <button class="item-select" data-filter-btn>Games</button>
-              </li>
-            </ul>
+    <section class="projects">
+      <ul class="filter-list">
+        <li class="filter-item">
+          <button class="item-select active" data-filter-btn data-filter="all">All</button>
+        </li>
+        <li class="filter-item">
+          <button class="item-select" data-filter-btn data-filter="web">Web</button>
+        </li>
+        <li class="filter-item">
+          <button class="item-select" data-filter-btn data-filter="mobile">Mobile</button>
+        </li>
+        <li class="filter-item">
+          <button class="item-select" data-filter-btn data-filter="games">Games</button>
+        </li>
+        <li class="filter-item">
+          <button class="item-select" data-filter-btn data-filter="other">Other</button>
+        </li>
+      </ul>
+
+      <ul class="project-list" data-filter="all"></ul>
+      </section>
+</article>
 
             <!-- <div class="filter-select-box">
               <button class="filter-select" data-select hidden>
@@ -576,12 +583,6 @@
                 </li>
               </ul>
             </div> -->
-
-            <ul class="project-list" data-filter="all"></ul>
-
-            <div class="project-detail-view" style="display: none"></div>
-          </section>
-        </article>
 
         <article class="contact" data-page="contact">
           <header>
