@@ -1,436 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>William - Personal Portfolio</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bagus Indrayana - Software Developer</title>
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/responsive.css">
-</head>
+    <!--
+    - favicon
+  -->
+    <link
+      rel="shortcut icon"
+      href="./assets/images/william.png"
+      type="image/x-icon" />
 
-<body>
-  <div class="loading-wrapper" id="loading">
-    <div class="bg-mobile">
-      <div class="big-slash">
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
+    <!--
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!--
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  </head>
+
+  <body>
+    <script src="./assets/js/data-loader.js"></script>
+    <script>
+      fetch("./datacopy.json")
+        .then((res) => res.json())
+        .then((data) => {
+          renderSidebar(data.personalInfo);
+          renderAbout(data.personalInfo.about);
+          renderServices(data.services);
+          renderEducation(data.resume.education);
+          renderExperience(data.resume.experience);
+          renderSkills(data.resume.skills);
+        })
+        .catch((err) => console.error("Failed to load data.json:", err));
+    </script>
+
+    <script>
+      fetch("./project.json")
+        .then((res) => res.json())
+        .then((data) => {
+          renderProjects(data.projects);
+        })
+        .catch((err) => console.error("Failed to load data.json:", err));
+    </script>
+
+    <!--
+    - #MAIN
+  -->
+
+    <main>
+      <!--
+      - #SIDEBAR
+    -->
+
+      <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+          <figure class="avatar-box">
+            <img
+              src="./assets/images/william2.png"
+              alt="William"
+              width="80"
+              style="border-radius: 30px" />
+          </figure>
+
+          <div class="info-content">
+            <h1 class="name" title=""></h1>
+
+            <p class="title"></p>
+          </div>
+
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+        </div>
+
+        <div class="sidebar-info_more">
+          <div class="separator"></div>
+
+          <ul class="contacts-list">
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+
+                <a href="" class="contact-link"></a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+
+                <a href="" class="contact-link"></a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="bulb-outline"></ion-icon>
+              </div>
+
+              <div class="contact-info">
+                <p class="contact-title">Interest</p>
+
+                <a href="" class="contact-link"></a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+
+                <address></address>
+              </div>
+            </li>
+          </ul>
+
+          <div class="separator"></div>
+
+          <ul class="social-list">
+            <li class="social-item">
+              <a href="https://github.com/wilwillie" class="social-link">
+                <ion-icon name="logo-github"></ion-icon>
+              </a>
+            </li>
+
+            <li class="social-item">
+              <a href="https://www.linkedin.com/in/william-wenstein/" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+            <li class="social-item">
+              <a href="https://instagram.com/wilwstn" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+          </ul>
+
+          <!-- <a
+            href="./assets/docs/CV_ATS_Haikal.pdf"
+            download="M_Haikal_Fuady_Resume.pdf"
+            class="form-btn download-resume-btn"
+            style="margin-top: 20px">
+            <ion-icon name="document-text-outline"></ion-icon>
+            <span>Download Resume</span>
+          </a> -->
+        </div>
+      </aside>
+
+      <!--
+      - #main-content
+    -->
+
+      <div class="main-content">
+        <!--
+        - #NAVBAR
+      -->
+
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <button
+                class="navbar-link active"
+                data-nav-link
+                data-page-btn="about">
+                About
+              </button>
+            </li>
+
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link data-page-btn="resume">
+                Resume
+              </button>
+            </li>
+
+            <li class="navbar-item">
+              <button
+                class="navbar-link"
+                data-nav-link
+                data-page-btn="portfolio">
+                Portfolio
+              </button>
+            </li>
+
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link data-page-btn="contact">
+                Contact
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <!--
+        - #ABOUT
+      -->
+
+        <article class="about active" data-page="about">
+          <header>
+            <h2 class="h2 article-title">About me</h2>
+          </header>
+
+          <section class="about-text"></section>
+
+          <!--
+          - service
+        -->
+
+          <section class="service">
+            <h3 class="h3 service-title">What i'm doing</h3>
+
+            <ul class="service-list">
+              <!-- Json load -->
+            </ul>
+          </section>
+
+          <!--
+          - testimonials
+        -->
+
+          <!-- <section class="testimonials">
+            <h3 class="h3 testimonials-title">Testimonials</h3>
+
+            <ul class="testimonials-list has-scrollbar">
+              <li class="testimonials-item">
+                <div class="content-card" data-testimonials-item>
+                  <figure class="testimonials-avatar-box">
+                    <img
+                      src="./assets/images/avatar-1.png"
+                      alt="Daniel lewis"
+                      width="60"
+                      data-testimonials-avatar />
+                  </figure>
+
+                  <h4
+                    class="h4 testimonials-item-title"
+                    data-testimonials-title>
+                    Ucup
+                  </h4>
+
+                  <div class="testimonials-text" data-testimonials-text>
+                    <p>
+                      Haikal was hired to create a corporate identity. We were
+                      very pleased with the work done. She has a lot of
+                      experience and is very concerned about the needs of
+                      client. Lorem ipsum dolor sit amet, ullamcous cididt
+                      consectetur adipiscing elit, seds do et eiusmod tempor
+                      incididunt ut laborels dolore magnarels alia.
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-item">
+                <div class="content-card" data-testimonials-item>
+                  <figure class="testimonials-avatar-box">
+                    <img
+                      src="./assets/images/avatar-2.png"
+                      alt="Jessica miller"
+                      width="60"
+                      data-testimonials-avatar />
+                  </figure>
+
+                  <h4
+                    class="h4 testimonials-item-title"
+                    data-testimonials-title>
+                    Ummi
+                  </h4>
+
+                  <div class="testimonials-text" data-testimonials-text>
+                    <p>
+                      Haikal was hired to create a corporate identity. We were
+                      very pleased with the work done. She has a lot of
+                      experience and is very concerned about the needs of
+                      client. Lorem ipsum dolor sit amet, ullamcous cididt
+                      consectetur adipiscing elit, seds do et eiusmod tempor
+                      incididunt ut laborels dolore magnarels alia.
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-item">
+                <div class="content-card" data-testimonials-item>
+                  <figure class="testimonials-avatar-box">
+                    <img
+                      src="./assets/images/avatar-3.png"
+                      alt="Emily evans"
+                      width="60"
+                      data-testimonials-avatar />
+                  </figure>
+
+                  <h4
+                    class="h4 testimonials-item-title"
+                    data-testimonials-title>
+                    Uus
+                  </h4>
+
+                  <div class="testimonials-text" data-testimonials-text>
+                    <p>
+                      Haikal was hired to create a corporate identity. We were
+                      very pleased with the work done. She has a lot of
+                      experience and is very concerned about the needs of
+                      client. Lorem ipsum dolor sit amet, ullamcous cididt
+                      consectetur adipiscing elit, seds do et eiusmod tempor
+                      incididunt ut laborels dolore magnarels alia.
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="testimonials-item">
+                <div class="content-card" data-testimonials-item>
+                  <figure class="testimonials-avatar-box">
+                    <img
+                      src="./assets/images/avatar-4.png"
+                      alt="Henry william"
+                      width="60"
+                      data-testimonials-avatar />
+                  </figure>
+
+                  <h4
+                    class="h4 testimonials-item-title"
+                    data-testimonials-title>
+                    Udin
+                  </h4>
+
+                  <div class="testimonials-text" data-testimonials-text>
+                    <p>
+                      Haikal was hired to create a corporate identity. We were
+                      very pleased with the work done. She has a lot of
+                      experience and is very concerned about the needs of
+                      client. Lorem ipsum dolor sit amet, ullamcous cididt
+                      consectetur adipiscing elit, seds do et eiusmod tempor
+                      incididunt ut laborels dolore magnarels alia.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section> -->
+
+          <!--
+          - testimonials modal
+        -->
+
+          <div class="modal-container" data-modal-container>
+            <div class="overlay" data-overlay></div>
+
+            <section class="testimonials-modal">
+              <button class="modal-close-btn" data-modal-close-btn>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+
+              <div class="modal-img-wrapper">
+                <figure class="modal-avatar-box">
+                  <img
+                    src="./assets/images/avatar-1.png"
+                    alt="Daniel lewis"
+                    width="80"
+                    data-modal-img />
+                </figure>
+
+                <img src="./assets/images/icon-quote.svg" alt="quote icon" />
+              </div>
+
+              <div class="modal-content">
+                <h4 class="h3 modal-title" data-modal-title>Ucup</h4>
+
+                <time datetime="2021-06-14">14 June, 2021</time>
+
+                <div data-modal-text>
+                  <p>
+                    Haikal was hired to create a corporate identity. We were
+                    very pleased with the work done. She has a lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum
+                    dolor sit amet, ullamcous cididt consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels
+                    dolore magnarels alia.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!--
+          - clients
+        -->
+
+          <!-- <section class="clients">
+            <h3 class="h3 clients-title">Clients</h3>
+
+            <ul class="clients-list has-scrollbar">
+              <li class="clients-item">
+                <a href="#">
+                  <img
+                    src="./assets/images/logo-1-color.png"
+                    alt="client logo" />
+                </a>
+              </li>
+
+              <li class="clients-item">
+                <a href="#">
+                  <img
+                    src="./assets/images/logo-2-color.png"
+                    alt="client logo" />
+                </a>
+              </li>
+
+              <li class="clients-item">
+                <a href="#">
+                  <img
+                    src="./assets/images/logo-3-color.png"
+                    alt="client logo" />
+                </a>
+              </li>
+
+              <li class="clients-item">
+                <a href="#">
+                  <img
+                    src="./assets/images/logo-4-color.png"
+                    alt="client logo" />
+                </a>
+              </li>
+
+              <li class="clients-item">
+                <a href="#">
+                  <img
+                    src="./assets/images/logo-5-color.png"
+                    alt="client logo" />
+                </a>
+              </li>
+
+              <li class="clients-item">
+                <a href="#">
+                  <img
+                    src="./assets/images/logo-6-color.png"
+                    alt="client logo" />
+                </a>
+              </li>
+
+              <li class="clients-item">
+                <a href="#">
+                  <img src="./assets/images/Logo-1.jpg" alt="client logo" />
+                </a>
+              </li>
+              <li class="clients-item">
+                <a href="#">
+                  <img src="./assets/images/Logo-2.png" alt="client logo" />
+                </a>
+              </li>
+            </ul>
+          </section> -->
+        </article>
+
+        <!--
+        - #RESUME
+      -->
+
+        <article class="resume" data-page="resume">
+          <header>
+            <h2 class="h2 article-title">Resume</h2>
+          </header>
+
+          <!-- <a
+            href="./assets/docs/CV_ATS_Haikal.pdf"
+            download="M_Haikal_Fuady_Resume.pdf"
+            class="form-btn download-resume-btn"
+            style="margin-top: 20px; margin-bottom: 20px">
+            <ion-icon name="document-text-outline"></ion-icon>
+            <span>Download Resume</span>
+          </a> -->
+
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="book-outline"></ion-icon>
+              </div>
+
+              <h3 class="h3">Education</h3>
+            </div>
+
+            <ol class="timeline-list edu-list"></ol>
+          </section>
+
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="briefcase-outline"></ion-icon>
+              </div>
+
+              <h3 class="h3">Experience</h3>
+            </div>
+
+            <ol class="timeline-list exp-list"></ol>
+          </section>
+
+          <section class="skill">
+            <h3 class="h3 skills-title">My Skills</h3>
+
+            <ul class="skills-list content-card"></ul>
+          </section>
+        </article>
+
+        <article class="portfolio" data-page="portfolio">
+          <header>
+            <h2 class="h2 article-title">Portfolio</h2>
+          </header>
+
+          <section class="projects">
+            <ul class="filter-list">
+              <li class="filter-item">
+                <button class="item-select active" data-filter-btn>All</button>
+              </li>
+              <li class="filter-item">
+                <button class="item-select" data-filter-btn>Web</button>
+              </li>
+              <li class="filter-item">
+                <button class="item-select" data-filter-btn>Mobile</button>
+              </li>
+              <li class="filter-item">
+                <button class="item-select" data-filter-btn>Games</button>
+              </li>
+            </ul>
+
+            <!-- <div class="filter-select-box">
+              <button class="filter-select" data-select hidden>
+                <div class="select-value" data-selecct-value>
+                  Select category
+                </div>
+
+                <div class="select-icon">
+                  <ion-icon name="chevron-down"></ion-icon>
+                </div>
+              </button>
+
+              <ul class="select-list">
+                <li class="select-item">
+                  <button data-select-item>All</button>
+                </li>
+                <li class="select-item">
+                  <button data-select-item>Web</button>
+                </li>
+                <li class="select-item">
+                  <button data-select-item>Mobile</button>
+                </li>
+                <li class="select-item">
+                  <button data-select-item>Games</button>
+                </li>
+              </ul>
+            </div> -->
+
+            <ul class="project-list" data-filter="all"></ul>
+
+            <div class="project-detail-view" style="display: none"></div>
+          </section>
+        </article>
+
+        <article class="contact" data-page="contact">
+          <header>
+            <h2 class="h2 article-title">Contact</h2>
+          </header>
+
+          <section class="mapbox" data-mapbox>
+            <figure>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15864.12944513525!2d106.7778591!3d-6.160423!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7f3c8189a4f%3A0x6d6593526d6f6c77!2sJl.%20Taman%20Daan%20Mogot%20Raya%20No.39!5e0!3m2!1sid!2sid!4v1717056801046!5m2!1sid!2sid"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</figure>
+          </section>
+
+          <section class="contact-form">
+            <h3 class="h3 form-title">Contact Form</h3>
+
+            <form
+              action="https://formspree.io/f/mrbynrzj"
+              method="POST"
+              class="form"
+              data-form>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  name="fullname"
+                  class="form-input"
+                  placeholder="Full name"
+                  required
+                  data-form-input />
+
+                <input
+                  type="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="Email address"
+                  required
+                  data-form-input />
+              </div>
+
+              <textarea
+                name="message"
+                class="form-input"
+                placeholder="Your Message"
+                required
+                data-form-input></textarea>
+
+              <button class="form-btn" type="submit" disabled data-form-btn>
+                <ion-icon name="paper-plane"></ion-icon>
+                <span>Send Message</span>
+              </button>
+            </form>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <div class="custom-alert" id="customAlert">
+      <div class="custom-alert-content">
+        <ion-icon name="checkmark-circle-outline" class="alert-icon"></ion-icon>
+        <p id="alertMessage">Pesan berhasil dikirim!</p>
+        <button id="alertCloseBtn" class="alert-close-btn">OK</button>
       </div>
     </div>
-    <div class="loading-text" animasi-tulisan="LOADING"></div>
-    <div class="loading-animation">
-
-      <div class="box-left"></div>
-      <div class="box-right"></div>
-      <div class="morse-left">
-
-        <div class="dot hide-lg hide-xl"></div>
-        <div class="dot hide-lg  hide-xl"></div>
-        <div class="dash hide-lg  hide-xl"></div>
-        <div class="dot hide-lg  hide-xl"></div>
-        <div class="dot hide-lg  hide-xl"></div>
-        <div class="dash hide-lg  hide-xl"></div>
-        <div class="dash hide-lg"></div>
-        <div class="dash hide-lg"></div>
-        <div class="dot hide-lg"></div>
-        <div class="dash hide-lg"></div>
-        <div class="dash hide-lg"></div>
-        <div class="dot hide-lg"></div>
-        <div class="dot hide-lg"></div>
-        <div class="dot hide-md"></div>
-        <div class="dash hide-md"></div>
-        <div class="dot hide-md"></div>
-        <div class="dash hide-md"></div>
-        <div class="dot hide-md"></div>
-        <div class="dot hide-md"></div>
-
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
 
 
-      </div>
-      <div class="morse-right">
+    <!-- swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <!--
+    - custom js link
+  -->
+    <script src="./assets/js/script.js"></script>
 
-        <div class="dot hide-lg hide-xl"></div>
-        <div class="dot hide-lg  hide-xl"></div>
-        <div class="dash hide-lg  hide-xl"></div>
-        <div class="dot hide-lg  hide-xl"></div>
-        <div class="dot hide-lg  hide-xl"></div>
-        <div class="dash hide-lg  hide-xl"></div>
-        <div class="dash hide-lg"></div>
-        <div class="dash hide-lg"></div>
-        <div class="dot hide-lg"></div>
-        <div class="dash hide-lg"></div>
-        <div class="dash hide-lg"></div>
-        <div class="dot hide-lg"></div>
-        <div class="dot hide-lg"></div>
-        <div class="dot hide-md"></div>
-        <div class="dash hide-md"></div>
-        <div class="dot hide-md"></div>
-        <div class="dash hide-md"></div>
-        <div class="dot hide-md"></div>
-        <div class="dot hide-md"></div>
-
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-        <div class="slash"></div>
-
-      </div>
-      <div class="section-rigth">
-        <div class="path cancel-path"></div>
-        <div class="path triangle-path"></div>
-        <div class="bar-small"></div>
-        <div class="path triangle-path" style="transform: rotateZ(180deg);"></div>
-        <div class="bar-medium"></div>
-        <div class="path cancel-path"></div>
-        <div class="bar-medium hide-lg"></div>
-        <div class="path circle-path hide-lg"></div>
-        <div class="path triangle-path hide-lg" style="transform: rotateZ(180deg);"></div>
-      </div>
-      <div class="section-left">
-        <div class="path triangle-path"></div>
-        <div class="path circle-path"></div>
-
-        <div class="bar-small"></div>
-        <div class="path triangle-path" style="transform: rotateZ(180deg);"></div>
-        <div class="bar-medium "></div>
-        <div class="path triangle-path hide-lg"></div>
-        <div class="path cancel-path hide-lg"></div>
-        <div class="bar-medium hide-lg"></div>
-
-        <div class="path cancel-path"></div>
-
-      </div>
-    </div>
-
-  </div>
-  <div id="mouse-tooltip"></div>
-  <ul class="side-nav" id="menu">
-    <li data-page="#page1" tooltip="HOME" class="active"><a href="#"><span></span></a></li>
-    <li data-page="#page2" tooltip="PROFILE"><a href="#"><span></span></a></li>
-    <li data-page="#page3" tooltip="PROJECT"><a href="#"><span></span></a></li>
-    <li data-page="#page4" tooltip="SKILL"><a href="#"><span></span></a></li>
-    <li data-page="#page5" tooltip="CONTACT"><a href="#"><span></span></a></li>
-  </ul>
-
-
-
-  <div id="full-page">
-    <section class="active" id="page1">
-      <div class="bg-animasi">
-        <p class="text" style="left: 10%;bottom: 10%;"></p>
-        <p class="text" style="right: 10%;top: 10%;"></p>
-        <div class="anim-1" style="top: 20%;">
-          <div class="cancel-path"></div>
-        </div>
-
-        <div class="anim-2" style="bottom: 30%;">
-          <div class="triangle-path"></div>
-        </div>
-
-        <div class="barcode">
-          <div class="big-slash">
-            <div class="slash"></div>
-            <div class="slash"></div>
-            <div class="slash"></div>
-            <div class="slash"></div>
-            <div class="slash"></div>
-            <div class="slash"></div>
-          </div>
-        </div>
-
-        <div class="jajar-genjang"></div>
-
-        <div class="circle">
-          <span></span>
-        </div>
-
-        <div class="anim-3">
-          <div class="cancel-path"></div>
-        </div>
-      </div>
-      <div class="container">
-        <h2 animasi-tulisan="WELCOME TO MY WEBSITE"></h2>
-        <div class="mouse">
-          <div class="mouse-shape">
-            <div class="mouse-animation"></div>
-          </div>
-          <div class="mouse-msg" animasi-tulisan="KEEP SCROLL"></div>
-        </div>
-      </div>
-    </section>
-    <section id="page2">
-
-      <div class="container">
-        <h4>PERSONAL INFORMATION</h4>
-
-        <div class="border-shape">
-          <div class="content-shape">
-            <div class="row biodata">
-              <div class="col-4">
-                <div class="lds-dual-ring"></div>
-                <div class="image-glitch">
-                  <div class="image-distortion" id="base" style="background-image: url('./assets/images/image.jpeg');">
-                  </div>
-                  <div class="image-distortion" id="red" style="background-image: url('./assets/images/image.jpeg');">
-                  </div>
-                  <div class="image-distortion" id="cyan" style="background-image: url('./assets/images/image.jpeg');">
-                  </div>
-                  <div class="image-distortion" id="transparent"
-                    style="background-image: url('./assets/images/image.jpeg');"></div>
-                </div>
-              </div>
-              <div class="col-8">
-                <div class="box">
-                  <ul>
-                    <li>
-                      NAME : <span animasi-tulisan="WILLIAM WENSTEIN">..........</span>
-                    </li>
-                    <li>
-                      BORN : <span animasi-tulisan="JAMBI, 12 MAY 2005">.........</span>
-                    </li>
-                    <li>
-                      ADDRESS : <span animasi-tulisan="JAKARTA, WEST JAKARTA">.........</span>
-                    </li>
-
-                  </ul>
-                </div>
-                <div class="box">
-                  <h4>STATUS</h4>
-                  <div class="stripes">
-                    <div class="stripes-bg">
-
-                    </div>
-                    <span class="status" animasi-tulisan="COLLEGE STUDENT"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <section id="page3">
-      <div class="container">
-        <h4>PROJECT & WORK</h4>
-        <div class="border-shape">
-          <div class="content-shape">
-            <div class="row project">
-              <div class="col-2">
-                <ul class="folder-list">
-                  <li data-target="#project-web" class="selected">
-                    <div class="folder-parent">
-                      <div class="folder">
-                        <div class="folder__back">
-                          <div class="paper"></div>
-                          <div class="paper"></div>
-                          <div class="paper"></div>
-                          <div class="folder__front"></div>
-                          <div class="folder__front right"></div>
-                        </div>
-                      </div>
-                      <span>WEB</span>
-                    </div>
-
-                  </li>
-                  <li data-target="#project-mobile">
-                    <div class="folder-parent">
-                      <div class="folder">
-                        <div class="folder__back">
-                          <div class="paper"></div>
-                          <div class="paper"></div>
-                          <div class="paper"></div>
-                          <div class="folder__front"></div>
-                          <div class="folder__front right"></div>
-                        </div>
-                      </div>
-                      <span>MOBILE</span>
-                    </div>
-                  </li>
-                  <li data-target="#project-game">
-                    <div class="folder-parent">
-                      <div class="folder">
-                        <div class="folder__back">
-                          <div class="paper"></div>
-                          <div class="paper"></div>
-                          <div class="paper"></div>
-                          <div class="folder__front"></div>
-                          <div class="folder__front right"></div>
-                        </div>
-                      </div>
-                      <span>GAME</span>
-                    </div>
-                  </li>
-                  <li data-target="#project-library">
-                    <div class="folder-parent">
-                      <div class="folder">
-                        <div class="folder__back">
-                          <div class="paper"></div>
-                          <div class="paper"></div>
-                          <div class="paper"></div>
-                          <div class="folder__front"></div>
-                          <div class="folder__front right"></div>
-                        </div>
-                      </div>
-                      <span>LIBRARY</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-10">
-                <div class="box">
-                  <div class="loading-bar">
-                    <div class="loading-bg">
-                      <div class="loading-fill"></div>
-                    </div>
-                  </div>
-                  <div class="box-content" id="project-web">
-                    <img class="list-item" src="./assets/images/wensteintopup.png" tooltip="TOP UP WEB DESIGN" onclick="openModalImage(this)" alt="Website Full Stack untuk Keperluan Bisnis Wenstein Top Up (Tim Front End)"/>
-
-                    <img class="list-item" src="./assets/images/web_isometric.png" tooltip="ISOMETRIC WEB DESIGN" onclick="openModalImage(this)" alt="Website Dengan Desain Isomteric 3D"/>
-             
-                    <img class="list-item" src="./assets/images/laravel_maps_demo.png" tooltip="LARAVEL MAPS DEMO" onclick="openModalImage(this)" alt="Website Demo Untuk Library Laravel Maps"/>
-                  
-                    <img class="list-item" src="./assets/images/kasir.png" tooltip="KASIR" onclick="openModalImage(this)" alt="Aplikasi Kasir & Inventory"/>
-                    <img class="list-item" src="./assets/images/peta.png" tooltip="PETA" onclick="openModalImage(this)" alt="Website Untuk Memetakan Lokasi"/>
-                    <img class="list-item" src="./assets/images/absensi.png" tooltip="ABSENSI" onclick="openModalImage(this)" alt="Aplikasi Absesi Karyawan Berbasis GPS"/>
-                    <img class="list-item" src="./assets/images/prediksi_kemiskinan.png" tooltip="PREDIKSI KEMISKINAN" onclick="openModalImage(this)" alt="Prediksi Jumlah Penduduk Miskin Dengan Metode Double Exponential Smoothing"/>
-                  
-
-                  </div>
-                  <div class="box-content" id="project-mobile">
-                    <img class="list-item" src="./assets/images/notes_lite.png" tooltip="NOTES LITE" onclick="openModalImage(this)" alt="Aplikasi Note Sederhana Dibuat Dengan Flutter"/>
-                    
-                  </div>
-                  <div class="box-content" id="project-game">
-                    <img class="list-item" src="./assets/images/escape_labyrinth.webp" tooltip="ESCAPE LABYRINTH" onclick="openModalImage(this)" alt="Game Horor Sederhana Dibuat Dengan Unity3D"/>
-
-                    <img class="list-item" src="./assets/images/box_dungeon.webp" tooltip="BOX DUNGEON" onclick="openModalImage(this)" alt="Game Dungeon Crawler Sederhana Dibuat Dengan Unity3D"/>
-                    
-                  </div>
-                  <div class="box-content" id="project-library">
-                    <a href="https://github.com/bagusindrayana/laravel-maps" target="_blank" class="list-item"
-                      tooltip="LARAVEL MAPS">
-                      LARAVEL MAPS
-                    </a>
-                    <a href="https://github.com/bagusindrayana/laravel-coordinate" target="_blank" class="list-item"
-                      tooltip="LARAVEL COORDINATE">
-                      LARAVEL COORDINATE
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="page4">
-      <div class="bg-animasi">
-        <p class="text" style="left: 10%;bottom: 1%;"></p>
-        <p class="text" style="right: 10%;top: 1%;"></p>
-
-
-
-
-        <div class="circle">
-          <span></span>
-        </div>
-
-        <div class="anim-3">
-          <div class="cancel-path"></div>
-        </div>
-      </div>
-      <div class="container">
-        <h4>SKILL</h4>
-        <div class="border-shape">
-          <div class="content-shape">
-            <div class="row skill">
-              <div class="col-6">
-                <ul>
-                  <li animasi-tulisan="HTML"></li>
-                  <li animasi-tulisan="CSS"></li>
-                  <li animasi-tulisan="JS"></li>
-                </ul>
-              </div>
-              <div class="col-6">
-                <ul>
-                  <li animasi-tulisan="PHP"></li>
-                  <li animasi-tulisan="LARAVEL"></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="page5">
-      <div class="bg-animasi">
-        <p class="text" style="left: 10%;bottom: 1%;"></p>
-        <p class="text" style="right: 10%;top: 1%;"></p>
-
-
-
-
-        <div class="circle">
-          <span></span>
-        </div>
-
-        <div class="anim-3">
-          <div class="cancel-path"></div>
-        </div>
-      </div>
-      <div class="container">
-        <h4>CONTACT</h4>
-        <div class="border-shape">
-          <div class="content-shape">
-            <div class="row contact">
-              <div class="col-6">
-                <ul>
-                  <li animasi-tulisan="WHATSAPP"><a href="https://wa.me/6281545419859"></a></li>
-                  <li animasi-tulisan="EMAIL"><a href="mailto:bagusindrayanaindo@gmail.com"></a></li>
-                </ul>
-              </div>
-              <div class="col-6">
-                <ul>
-                  <li animasi-tulisan="FACEBOOK"><a href="https://web.facebook.com/people/Good/100011408296738/"></a>
-                  </li>
-                  <li animasi-tulisan="INSTAGRAM"><a href="https://www.instagram.com/bagusindrayana"></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-  <div id="myModal" class="modal">
-    <img class="modal-content" id="img01">
-    <div id="caption"></div>
-  </div>
-
-  <script src="./assets/js/scrollpage.js"></script>
-  <script src="./assets/js/scripts.js"></script>
-</body>
-
+    <!--
+    - ionicon link
+  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
 </html>

@@ -1,0 +1,98 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Rage2Wars",
+      "description": "A card game inspired by the Japanese game of suit.",
+      "technologies": ["Java Swing", "MySQL", "OOP"],
+      "role": ["Team Leader", "Developer", "Asset builder"],
+      "type": "Games",
+      "thumb": "Rage2wars.png",
+      "gallery":["About.png","tutz1.png", "tutz2.png", "tutz3.png", "gachaBanner.png"],
+      "source": "https://github.com/hycallf/Rage2WarsGame",
+      "longDescription": "<p>Rage2wars is a card-based game inspired by the Japanese suit system. Each player has 4 cards in hand and 20 cards in total in the deck. Each card is assigned an attribute (rock, paper, or scissors) and has both attack and defense points. When a card is played, it is matched against the opponent's card following the rules of rock-paper-scissors. If the player wins the round, the enemy takes damage equal to the difference between the player's attack and the enemy's defense. If the round ends in a draw or loss, the played card is destroyed and sent to the graveyard, and a new card is drawn from the deck.</p><p>The game ends when a player’s life points (LP) are reduced to zero or when their deck is depleted. Upon winning, players are rewarded with gold and experience points (EXP). Gems are granted when the experience bar is full and the player levels up. Gold is used for standard gacha, while diamonds are used for premium gacha pulls.</p>"
+    },
+    {
+      "id": 2,
+      "name": "Al Hanif Store",
+      "description": "A web application designed to be used by store owners in managing their stores.",
+      "technologies": ["PHP", "MySQL", "JS", "jQuery", "Bootstrap"],
+      "role": "Full stack developer",
+      "type": "Web",
+      "thumb": "alhanif.png",
+      "gallery":["alhanif-1.png","alhanif-2.png", "alhanif-3.png", "alhanif-4.png", "alhanif-5.png"],
+      "source": "https://jurnaldrpm.budiluhur.ac.id/index.php/Kresna/article/view/59/101",
+      "longDescription": "<p>Al-Hanif Store is a retail business specializing in selling imported goods, particularly souvenirs and traditional products from Arab countries such as dates, olives, and robes. Currently, the business relies on manual bookkeeping for managing inventory, recording transactions, and generating financial reports, which limits its efficiency and scalability in the digital era. To overcome these limitations and keep up with technological advancements, there is a strong need to develop a website that serves as an integrated information system. This website will enable the store to manage product inventory, record sales transactions, generate reports, and update data in a centralized and dynamic database. Additionally, it will allow customers to access product information, promotions, and perform online transactions from anywhere at any time.</p><p>The system development for Al-Hanif Store will follow the Waterfall model, which consists of sequential phases such as planning, analysis, design, implementation, and maintenance. This model is chosen for its structured approach and ability to ensure high-quality outcomes through step-by-step development. Although the Waterfall model can be time-consuming and costly, its methodical process is well-suited for clearly defined system requirements like those of Al-Hanif Store. Previous research has shown that using the Waterfall model in similar projects significantly aids in simplifying each stage of development and helps ensure successful system implementation.</p>"
+    },
+    {
+      "id": 3,
+      "name": "DoM-EOR",
+      "description": "An app that simplifies the screening process by providing a user-friendly interface to input reservoir characteristics.",
+      "technologies": ["ExpressJS", "Kotlin", "Python TF"],
+      "role": ["CC Team", "Back-End","DevOps"],
+      "type": "Mobile",
+      "thumb": "Project4.png",
+      "source":"https://github.com/hycallf/DoM-EOR",
+      "longDescription" : "<p>The DoM-EOR application helps users determine the best method for enhancing oil recovery using EOR (Enhanced Oil Recovery) screening criteria. These techniques are essential for maximizing oil extraction from reservoirs but require complex decision-making. EOR methods include thermal recovery, chemical injection, and miscible/immiscible gas injection, each suitable under different reservoir conditions such as pressure, rock type, oil viscosity, saturation, and formation properties.</p><p>This application streamlines the selection process by offering an intuitive interface where users can input various reservoir and fluid characteristics. Based on these inputs, the system evaluates and recommends the most appropriate EOR method, helping engineers and decision-makers optimize recovery strategies more efficiently.</p>"
+    },
+    {
+      "id": 4,
+      "name": "Website Prodi CS",
+      "description": "A website application for CS study program documentation.",
+      "technologies": ["Laravel 10", "Bootstrap"],
+      "role": "Developer",
+      "type": "Web",
+      "thumb": "Project5.png",
+      "source": "https://github.com/hycallf/CSWebsite",
+      "gallery":["Project5.png"],
+      "longDescription": "<p>This application represents a project within the Computer Science program at ESQ Business School, serving as a specialized online documentation platform tailored for the Computer Science curriculum. Its purpose is to systematically document achievements, publications, projects, and other relevant features specific to the Computer Science program.</p><p>The platform supports better academic transparency and visibility, enabling students and faculty members to showcase research, innovations, and departmental milestones. It helps build a digital archive that aligns with the long-term goals of the academic program and institutional accreditation.</p>"
+    },
+    {
+      "id": 5,
+      "name": "System Services Management on Tomo Pondok Mahkota Motor",
+      "description": "An application website that provides the needs of shop owners to manage services.",
+      "technologies": ["Laravel", "Bootstrap","Midtrans", "Wablast", "Jquery","Ajax"],
+      "role": "Developer",
+      "type": "Web",
+      "thumb": "Tomo-store.png",
+      "source": "https://www.youtube.com/watch?v=EsU1GLfUX74",
+      "gallery":["Tomo-store.png"],
+      "longDescription": "<p>This Vehicle Workshop Management System is a modern application designed to support the day-to-day operations of automotive repair businesses. It provides an end-to-end workflow from customer registration to repair tracking, integrated with <strong>payment gateway</strong>, <strong>email</strong>, and <strong>WhatsApp</strong> for automated customer notifications. The system includes <strong>four main user roles</strong>: Administrator, Admin, Worker, and Customer, each with specific access rights and responsibilities.</p><p><strong>The Administrator</strong> holds the highest control over the system, managing master data such as user accounts, service categories, and store settings. Administrators can also monitor all financial and operational activities.</p><p><strong>Admins</strong> handle daily operations such as registering customers and vehicles, managing repairs, transactions, payment confirmations, and sending maintenance reminders. They have full operational access but cannot modify master settings or user permissions.</p><p><strong>Workers</strong> (mechanics) receive job assignments from admins and are responsible for updating the repair progress until completion. Their access is limited to only the jobs assigned to them.</p><p><strong>Customers</strong> can log in to view their registered vehicles, ongoing repairs, and repair history. They will receive real-time notifications via email and WhatsApp for every registration, repair update, and payment status. Customers can also make <strong>virtual payments</strong> through the integrated gateway and download invoices.</p><p>This system is equipped with automatic reminder scheduling, secure digital transactions, and role-based dashboards. It is designed to be mobile responsive and can be further developed into a Flutter-based mobile application for more flexible access.</p>"
+    },
+    {
+      "id": 6,
+      "name": "TPA Management System",
+      "description": "An application for TPA/TPQ management.",
+      "technologies": ["Flutter", "Dart"],
+      "thumb": "Project3.png",
+      "role" :"Full stack developer",
+      "type" :"Mobile",
+      "gallery" :["Project3.png"],
+      "longDescription" : "<p>The TPA Management System is a mobile application built using Flutter and Dart, designed to manage daily activities in TPA/TPQ (Islamic learning centers for children). This application provides a structured way for teachers to store and track students' daily Al-Qur'an or Iqra reading progress, including the ability to give assessments, provide corrections on recitations, and maintain historical data of each student's development over time.</p><p>In addition to its educational features, the system also supports administrative functions, such as managing student data, recording attendance, organizing classes, and handling internal documentation. The app aims to help TPA institutions modernize their operations, reduce manual paperwork, and provide a more interactive and data-driven learning environment for students and educators alike.</p>"
+    },
+    {
+      "id": 7,
+      "name": "DMT-ID",
+      "description": "Company website for PT. Delta Myriad Teknologi",
+      "technologies": ["CMS", "Wordpress"],
+      "thumb": "7.png",
+      "role" :"developer",
+      "type" :"Web",
+      "gallery" :["7.png"],
+      "source":"https://dmt-id.net/",
+      "longDescription" : "<p>PT. DELTA MYRIAD TEKNOLOGI (DMT) merupakan Perusahaan Lokal Berkelas Dunia yang bergerak di bidang jasa penjualan, pemasangan dan servis (Geotech & Geosurvey services)</p>"
+    },
+    {
+      "id": 8,
+      "name": "PT Mitra Intimarga",
+      "description": "Company website for PT Mitra Intimarga",
+      "technologies": ["CMS", "Wordpress"],
+      "thumb": "8.png",
+      "role" :"developer",
+      "type" :"Web",
+      "gallery" :["8.png"],
+      "source":"https://ptmitra.com/",
+      "longDescription" : "<p>PT. MITRA INTIMARGA adalah perusahaan lokal berkualitas Internasional yang profesional berintegritas dan berkomitmen dengan cerdas dan mumpuni (Trusted & Righteous).</p> <p>Kami adalah perusahaan yang terdepan, terpercaya dalam bidang penyediaan peralatan berteknologi maju dan komitmen dengan berusaha menjaga dan menjalin kerjasama dengan para Mitra.</p> <p>Sesuai filosofi “1A”: “The First Quality and The Best Price” artinya adalah dengan kualitas terbaik dengan harga terjangkau.</p><p>PT. MITRA INTIMARGA adalah perusahaan nasional berwawasan global sehingga dapat memahami kebutuhan para Mitra/Pelanggan/Customer dengan dukungan Prinsipal (Pabrikan).</p>"
+    }
+  ]
+}
