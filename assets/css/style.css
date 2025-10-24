@@ -2347,7 +2347,9 @@ textarea.form-input::-webkit-resizer {
 \*-----------------------------------*/
 
 @media (max-width: 767px) {
-  
+  .filter-item button.active {
+    color: var(--orange-yellow-crayola);
+  }
   /* PENTING: Atur ulang max-height sidebar. 
      Nilai 250px ini adalah perkiraan yang lebih besar dari tinggi 
      konten default (nama, judul, foto) ditambah tinggi tombol resume. 
@@ -2399,3 +2401,4 @@ textarea.form-input::-webkit-resizer {
         max-height: 250px; 
     }
 }
+
