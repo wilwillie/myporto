@@ -2,54 +2,30 @@
   "projects": [
     {
       "id": 1,
-      "name": "Polylingo: Foreign Language Learning App",
-      "description": "A mobile application developed with Flutter/Dart to facilitate interactive, video-based foreign language learning.",
-      "technologies": ["Flutter/Dart", "Firebase", "Figma", "GitHub"],
-      "role": ["Mobile Developer – Focusing on User Authentication Flow and Core Navigation"],
-      "type": "Mobile",
-      "thumb": "polylingo.png",
-      "gallery": ["polylingo2.png", "polylingo3.png"],
-      "source": "https://www.figma.com/design/30YvuU1bseqYNv4Ar6k9Yd/PengembanganApps?node-id=0-1&t=es7qS9G8N08sv9wl-1",
-      "longDescription": "<p>Polylingo is a mobile learning app developed with Flutter/Dart, focusing on video-based foreign language education.</p><p>FROM DESIGN PROTOTYPE TO LIVE APP: FIDELITY SHOWCASE</p><p>This project demonstrates my ability to translate Figma designs into a functional, pixel-accurate Flutter application. My key contributions focused on:</p><p>1. Secure Authentication Flow (Forgot Password): Implemented the full three-step password recovery (Forgot Password, Verify Code, Set New Password) with robust email and password validation logic.</p><p>2. Core Navigation (Home Screen): Implemented the main dashboard featuring a personalized greeting (\"Hello, William!\"), an automatic image slider, and categorized course sections.</p><p>3. Search Functionality: Developed the Search Screen with efficient \"prefix match\" search logic and integrated validation to report \"No courses found\" when necessary.</p>"
+      "name": "Diabetes Prediction using K-Nearest Neighbors (KNN)",
+      "description": "A machine learning project that classifies diabetes cases using KNN algorithm with preprocessing and performance evaluation.",
+      "technologies": ["MATLAB", "Python", "KNN", "Data Preprocessing", "Confusion Matrix", "Evaluation Metrics"],
+      "thumb": "knn.png",
+      "role": "Data Analyst & Model Developer",
+      "type": "Machine Learning",
+      "gallery": ["knn2.png", "knn3.png", "knn4.png", "knn5.png"],
+      "source": "https://drive.google.com/file/d/1IfVFJuop5xLXKpR1JxlgKbVamj0oI71k/view",
+      "longDescription": "<p>This Data Mining project applies two distinct machine learning techniques—Principal Component Analysis (PCA) and Naïve Bayes—to classify goalkeepers in the FIFA 19 dataset based on their in-game attributes. The goal was to build an efficient model that accurately categorizes player roles using high-dimensional data.</p><p>Key Contributions & Analysis:</p><p>1. Dimensionality Reduction (PCA): Implemented Principal Component Analysis to transform the original large set of goalkeeper attributes into a smaller set of principal components while retaining maximum variance. This step optimized the training process and mitigated the curse of dimensionality.</p><p>2. Naïve Bayes Model Implementation: Utilized the Naïve Bayes classification algorithm (specifically Gaussian Naïve Bayes) to predict goalkeeper archetypes based on the features extracted by PCA.</p><p>3. Data Preprocessing & Outlier Removal: Performed crucial steps such as handling outliers using methods like Mahalanobis Distance to ensure the data quality met the assumptions required by both PCA and the Naïve Bayes algorithm.</p><p>4. Performance Evaluation: Evaluated the model using classification metrics like Accuracy, Precision, and Recall. The results were visually represented using a Confusion Matrix to analyze the performance and misclassification rates across different goalkeeper classes.</p>"
     },
     {
-      "id": 2,
-      "name": "Anugrah Sejahtera: Web-Based Stock & Sales Information System",
-      "description": "A full-stack web application for an SME (building materials) to automate inventory management, transaction recording, and sales reporting.",
-      "technologies": ["Laravel (PHP)", "MySQL", "Bootstrap CSS", "HTML/CSS/JS"],
-      "role": ["Full Stack Developer (Web) – Focus: Database Design & Core Admin Modules (Inventory/Transactions)"],
-      "type": "Web",
-      "thumb": "anugrahsejahtera.png",
-      "gallery": ["anugrahsejahtera2.png", "anugrahsejahtera3.png"],
-      "source": "https://blueviolet-narwhal-430043.hostingersite.com/",
-      "longDescription": "<p>This Capstone Project successfully created a web-based stock and sales information system for the building materials SME \"Anugrah Sejahtera.\" Developed using Laravel and MySQL, the system automates 90% of manual processes, significantly boosting the partner's operational efficiency.</p><p>As a Full Stack Developer, I was involved in the Monolithic architecture design, relational database design (MySQL) fulfilling 3NF, and the implementation of key features.</p><p>Key Technical Contributions:</p><p>1. Multi-Role Authentication: Implemented a multi-role login system (Admin and Sales) with secure session management and password encryption using Bcrypt/Hashing.</p><p>2. Inventory Management: Developed the Admin Dashboard, including CRUD functionality for product data and logging Goods In/Out, which automatically updates the stock inventory.</p><p>3. Sales & Invoice Module: Implemented the feature for new Sales Data input, alongside the generation and printing of Sales Invoices in PDF format.</p><p>4. Database Design: Designed the core database structure (Product, History Sales, Admin, Employee) with One-to-Many relationships to ensure transaction data consistency and integrity.</p>"
+    "id": 2,
+    "name": "Meteorological Data Analysis of Jambi City (1990–1999)",
+    "description": "A quantitative data analysis project using Python to identify and visualize annual climate trends (temperature, rainfall, humidity, wind speed) in Jambi City over the 1990–1999 period[cite: 70, 66].",
+    "technologies": ["Python", "Pandas", "Matplotlib", "Jupyter Notebook", "Descriptive Statistics", "Correlation Analysis"],
+    "role": ["Data Analyst", "Data Scientist – Focused on Climate Trend Analysis and Meteorological Data Visualization"],
+    "type": "Data Science / Big Data Analytics",
+    "thumb": "jambi.png",
+    "gallery": ["jambi2.png", "jambi3.png", "jambi4.png", "jambi5.png", "jambi6.png", "jambi7.png", "jambi8.png"],
+    "source": "https://drive.google.com/drive/folders/1PTTWaSlPHZYxliQ7eCWS9JExiGiReNU9",
+    "longDescription": "<p>This project aimed to analyze historical meteorological data for Jambi City (1990–1999) to understand climate change patterns, serving as a basis for city-level climate change mitigation and adaptation strategies. The methodology employed was quantitative analysis using historical data from the official BMKG Online Data Center.</p><p>KEY CONTRIBUTIONS:</p><p>1. Data Processing: Collected, validated, and processed numerical meteorological data (temperature, rainfall, humidity, wind) using the Pandas library in Python.</p><p>2. Climate Trend Analysis: Performed descriptive statistical analysis to identify annual trends across nine climate parameters (e.g., average temperature decreased at the start of the decade and increased towards the end of the 1990s).</p><p>3. Comprehensive Data Visualization: Utilized Matplotlib to create complex data visualizations, including Line Plots for annual trends, Box Plots to illustrate annual variation, median, and identify outliers (extreme events), and a Heatmap to analyze the linear correlation between variables (e.g., a strong positive correlation of 0.724 was found between Maximum Temperature and Average Temperature).</p><p>4. Critical Insights: The analysis results provided crucial insights into significant annual variations in several weather parameters, such as minimum temperature, humidity, and rainfall, which can be used for city planning and climate change mitigation.</p>"
     },
     {
       "id": 3,
-      "name": "Rock Paper Scissors (RPS) Web Game",
-      "description": "A classic Rock, Paper, Scissors game implemented on the web, focusing on DOM manipulation and core JavaScript logic.",
-      "technologies": ["HTML5", "CSS3", "JavaScript (DOM Manipulation)"],
-      "role": ["Front-End Developer / JavaScript Logic Programmer"],
-      "type": "Web",
-      "thumb": "rockpaperscissors.png",
-      "gallery": ["rockpaperscissors2.png"],
-      "source": "https://wilwillie.github.io/rockpaperscissors/",
-      "longDescription": "<p>This is a simple, browser-based Rock, Paper, Scissors game designed to be played against the computer. The game uses a 'First to 5 points wins' rule and demonstrates foundational skills in front-end development.</p><p>Key Technical Contributions:</p><p>1. Game Logic Implementation: Developed the core JavaScript function playRound() to determine the winner based on the classic RPS rules, handling win, loss, and draw scenarios.</p><p>2. Computer AI: Implemented the getComputerChoice() function using Math.random() to ensure the computer's moves are randomly selected from the available choices (Rock, Paper, Scissors).</p><p>3. Dynamic UI Updates (DOM Manipulation): Created the setDisplay() function to dynamically update the scoreboards and display the Player's and Computer's choices (using Emojis) on the screen after every round.</p><p>4. Game Flow Management: Developed the playGame() function to manage button event listeners, track the current score, and alert the user when the game ends (at 5 rounds), followed by automatically resetting the score and UI for a new game.</p>"
-    },
-    {
-      "id": 4,
-      "name": "WILENCE: Informational Fashion Website",
-      "description": "A full-stack informational website on fashion and lifestyle, providing product details, maintenance tips, and interactive features like a bodyshape calculator.",
-      "technologies": ["HTML5", "CSS3/Bootstrap", "JavaScript/AngularJS", "Node.js/Express.js", "MongoDB"],
-      "role": ["Full Stack Developer – Focus: Database, Authentication Flow, Homepage, Filtering & Search"],
-      "type": "Web",
-      "thumb": "wilence.png",
-      "gallery": ["wilence2.png", "wilence3.png"],
-      "source": "https://github.com/wilwillie/lifestyle-website",
-      "longDescription": "<p>WILENCE is a dynamic, full-stack website developed to meet the modern demand for comprehensive fashion and lifestyle information. The platform provides educational content on trends, tips, and product care, inspired by minimalist yet elegant design philosophies.</p><p>The back-end utilizes Node.js/Express.js and MongoDB to manage server-side logic, user authentication, and flexible data storage, ensuring a dynamic and interactive user experience.</p><p>Key Contributions:</p><p>1. Database Connection: Successfully connected and utilized MongoDB as the primary database for the project, enabling secure storage of user data, comments, and ratings.</p><p>2. Core UI/UX Development: Implemented the main Homepage display and user navigation flow.</p><p>3. User Authentication: Developed the complete Log In, Sign Up, and Edit Profile features, which includes server-based authentication and secure data handling.</p><p>4. Product Navigation: Created the Filtering and Search functionalities, allowing users to efficiently sort and find products based on category (Tops, Bottoms, Accessories) and product name.</p><p>Other implemented features include a Bodyshape Calculator, Comments/Ratings/Questions forms, Dark/Light mode toggle, and a responsive design.</p>"
-    },
-    {
-      "id": 5,
       "name": "Student Grade Data Security: DES Encryption Analysis",
       "description": "A project focused on the theoretical and practical application of the Data Encryption Standard (DES) algorithm to secure student grade data through manual calculation.",
       "technologies": ["Applied Cryptography", "Data Encryption Standard (DES)", "Technical Analysis"],
@@ -61,7 +37,7 @@
       "longDescription": "<p>This project involved the detailed analysis and manual step-by-step calculation of the Data Encryption Standard (DES) algorithm to demonstrate the security process for sensitive student grade data. Its goal was to prove conceptual understanding and mathematical accuracy in symmetric cryptography.</p><p>Key Technical Contributions:</p><p>1. Theoretical Implementation of DES: Successfully applied and validated every stage of the DES algorithm manually, including the Initial Permutation (IP), Final Permutation (FP), and the 16 Feistel rounds.</p><p>2. Key Schedule Calculation: Performed complex manual calculations for the Key Schedule process (PC-1 and PC-2) to generate 16 different 48-bit sub-keys for each Feistel round.</p><p>3. Proof of Concept: Provided accurate mathematical proofs and flowcharts to demonstrate that the plaintext was successfully converted into ciphertext and then decrypted back to the original data using the correct key.</p>"
     },
     {
-      "id": 6,
+      "id": 4,
       "name": "Basic Embedded Systems: Arduino I/O Logic & Control",
       "description": "A collection of three core Arduino Uno projects demonstrating mastery over digital/analog I/O control, state management, and real-time response using C/C++.",
       "technologies": ["Arduino (C/C++)", "Wokwi Simulator", "Digital I/O", "Analog I/O (PWM/ADC)"],
@@ -77,16 +53,52 @@
       "longDescription": "<p>This project collection showcases fundamental skills in embedded programming and hardware interaction using the Arduino Uno platform (simulated via Wokwi). It focuses on translating specific functional requirements into efficient C/C++ code for microcontroller control.</p><p>Key Technical Implementations:</p><p>1. Advanced LED Pattern & State Control: Developed code to execute a sequential LED pattern (pin 2-5, left-to-right, then right-to-left) with a 500ms delay. Crucially, implemented state management (non-blocking logic) to pause the pattern upon pushbutton input and resume from the exact last active position when the button is released. [Link: https://wokwi.com/projects/413236470219935745]</p><p>2. Buzzer & LED Signal Control: Created a circuit and code to activate a digital output sequence based on pushbutton input. When the button is pressed, the buzzer outputs two distinct tones (256 Hz and 300 Hz) sequentially, while the LED remains active. Both devices immediately cease output when the button is released. [Link: https://wokwi.com/projects/413360167683702785]</p><p>3. Analog Input and Digital Output (Potentiometer): Designed a system using the Analog-to-Digital Converter (ADC) by reading input from a potentiometer (Pin A0). The code converts the 0-1023 analog value to a 0-100% volume percentage, displaying it on the Serial Monitor. Implemented conditional logic to control a digital output (LED Pin 9) based on the calculated percentage (LED ON if >= 50%). [Link: https://wokwi.com/projects/413361643850302465]</p>"
     },
     {
+      "id": 5,
+      "name": "WILENCE: Informational Fashion Website",
+      "description": "A full-stack informational website on fashion and lifestyle, providing product details, maintenance tips, and interactive features like a bodyshape calculator.",
+      "technologies": ["HTML5", "CSS3/Bootstrap", "JavaScript/AngularJS", "Node.js/Express.js", "MongoDB"],
+      "role": ["Full Stack Developer – Focus: Database, Authentication Flow, Homepage, Filtering & Search"],
+      "type": "Web",
+      "thumb": "wilence.png",
+      "gallery": ["wilence2.png", "wilence3.png"],
+      "source": "https://github.com/wilwillie/lifestyle-website",
+      "longDescription": "<p>WILENCE is a dynamic, full-stack website developed to meet the modern demand for comprehensive fashion and lifestyle information. The platform provides educational content on trends, tips, and product care, inspired by minimalist yet elegant design philosophies.</p><p>The back-end utilizes Node.js/Express.js and MongoDB to manage server-side logic, user authentication, and flexible data storage, ensuring a dynamic and interactive user experience.</p><p>Key Contributions:</p><p>1. Database Connection: Successfully connected and utilized MongoDB as the primary database for the project, enabling secure storage of user data, comments, and ratings.</p><p>2. Core UI/UX Development: Implemented the main Homepage display and user navigation flow.</p><p>3. User Authentication: Developed the complete Log In, Sign Up, and Edit Profile features, which includes server-based authentication and secure data handling.</p><p>4. Product Navigation: Created the Filtering and Search functionalities, allowing users to efficiently sort and find products based on category (Tops, Bottoms, Accessories) and product name.</p><p>Other implemented features include a Bodyshape Calculator, Comments/Ratings/Questions forms, Dark/Light mode toggle, and a responsive design.</p>"
+    },
+    {
+      "id": 6,
+      "name": "Anugrah Sejahtera: Web-Based Stock & Sales Information System",
+      "description": "A full-stack web application for an SME (building materials) to automate inventory management, transaction recording, and sales reporting.",
+      "technologies": ["Laravel (PHP)", "MySQL", "Bootstrap CSS", "HTML/CSS/JS"],
+      "role": ["Full Stack Developer (Web) – Focus: Database Design & Core Admin Modules (Inventory/Transactions)"],
+      "type": "Web",
+      "thumb": "anugrahsejahtera.png",
+      "gallery": ["anugrahsejahtera2.png", "anugrahsejahtera3.png"],
+      "source": "https://blueviolet-narwhal-430043.hostingersite.com/",
+      "longDescription": "<p>This Capstone Project successfully created a web-based stock and sales information system for the building materials SME \"Anugrah Sejahtera.\" Developed using Laravel and MySQL, the system automates 90% of manual processes, significantly boosting the partner's operational efficiency.</p><p>As a Full Stack Developer, I was involved in the Monolithic architecture design, relational database design (MySQL) fulfilling 3NF, and the implementation of key features.</p><p>Key Technical Contributions:</p><p>1. Multi-Role Authentication: Implemented a multi-role login system (Admin and Sales) with secure session management and password encryption using Bcrypt/Hashing.</p><p>2. Inventory Management: Developed the Admin Dashboard, including CRUD functionality for product data and logging Goods In/Out, which automatically updates the stock inventory.</p><p>3. Sales & Invoice Module: Implemented the feature for new Sales Data input, alongside the generation and printing of Sales Invoices in PDF format.</p><p>4. Database Design: Designed the core database structure (Product, History Sales, Admin, Employee) with One-to-Many relationships to ensure transaction data consistency and integrity.</p>"
+    },
+    {
       "id": 7,
-      "name": "Diabetes Prediction using K-Nearest Neighbors (KNN)",
-      "description": "A machine learning project that classifies diabetes cases using KNN algorithm with preprocessing and performance evaluation.",
-      "technologies": ["MATLAB", "Python", "KNN", "Data Preprocessing", "Confusion Matrix", "Evaluation Metrics"],
-      "thumb": "knn.png",
-      "role": "Data Analyst & Model Developer",
-      "type": "Machine Learning",
-      "gallery": ["knn2.png", "knn3.png", "knn4.png", "knn5.png"],
-      "source": "https://drive.google.com/file/d/1IfVFJuop5xLXKpR1JxlgKbVamj0oI71k/view",
-      "longDescription": "<p>This Data Mining project applies two distinct machine learning techniques—Principal Component Analysis (PCA) and Naïve Bayes—to classify goalkeepers in the FIFA 19 dataset based on their in-game attributes. The goal was to build an efficient model that accurately categorizes player roles using high-dimensional data.</p><p>Key Contributions & Analysis:</p><p>1. Dimensionality Reduction (PCA): Implemented Principal Component Analysis to transform the original large set of goalkeeper attributes into a smaller set of principal components while retaining maximum variance. This step optimized the training process and mitigated the curse of dimensionality.</p><p>2. Naïve Bayes Model Implementation: Utilized the Naïve Bayes classification algorithm (specifically Gaussian Naïve Bayes) to predict goalkeeper archetypes based on the features extracted by PCA.</p><p>3. Data Preprocessing & Outlier Removal: Performed crucial steps such as handling outliers using methods like Mahalanobis Distance to ensure the data quality met the assumptions required by both PCA and the Naïve Bayes algorithm.</p><p>4. Performance Evaluation: Evaluated the model using classification metrics like Accuracy, Precision, and Recall. The results were visually represented using a Confusion Matrix to analyze the performance and misclassification rates across different goalkeeper classes.</p>"
+      "name": "Rock Paper Scissors (RPS) Web Game",
+      "description": "A classic Rock, Paper, Scissors game implemented on the web, focusing on DOM manipulation and core JavaScript logic.",
+      "technologies": ["HTML5", "CSS3", "JavaScript (DOM Manipulation)"],
+      "role": ["Front-End Developer / JavaScript Logic Programmer"],
+      "type": "Web",
+      "thumb": "rockpaperscissors.png",
+      "gallery": ["rockpaperscissors2.png"],
+      "source": "https://wilwillie.github.io/rockpaperscissors/",
+      "longDescription": "<p>This is a simple, browser-based Rock, Paper, Scissors game designed to be played against the computer. The game uses a 'First to 5 points wins' rule and demonstrates foundational skills in front-end development.</p><p>Key Technical Contributions:</p><p>1. Game Logic Implementation: Developed the core JavaScript function playRound() to determine the winner based on the classic RPS rules, handling win, loss, and draw scenarios.</p><p>2. Computer AI: Implemented the getComputerChoice() function using Math.random() to ensure the computer's moves are randomly selected from the available choices (Rock, Paper, Scissors).</p><p>3. Dynamic UI Updates (DOM Manipulation): Created the setDisplay() function to dynamically update the scoreboards and display the Player's and Computer's choices (using Emojis) on the screen after every round.</p><p>4. Game Flow Management: Developed the playGame() function to manage button event listeners, track the current score, and alert the user when the game ends (at 5 rounds), followed by automatically resetting the score and UI for a new game.</p>"
+    },
+    {
+      "id": 8,
+      "name": "Polylingo: Foreign Language Learning App",
+      "description": "A mobile application developed with Flutter/Dart to facilitate interactive, video-based foreign language learning.",
+      "technologies": ["Flutter/Dart", "Firebase", "Figma", "GitHub"],
+      "role": ["Mobile Developer – Focusing on User Authentication Flow and Core Navigation"],
+      "type": "Mobile",
+      "thumb": "polylingo.png",
+      "gallery": ["polylingo2.png", "polylingo3.png"],
+      "source": "https://www.figma.com/design/30YvuU1bseqYNv4Ar6k9Yd/PengembanganApps?node-id=0-1&t=es7qS9G8N08sv9wl-1",
+      "longDescription": "<p>Polylingo is a mobile learning app developed with Flutter/Dart, focusing on video-based foreign language education.</p><p>FROM DESIGN PROTOTYPE TO LIVE APP: FIDELITY SHOWCASE</p><p>This project demonstrates my ability to translate Figma designs into a functional, pixel-accurate Flutter application. My key contributions focused on:</p><p>1. Secure Authentication Flow (Forgot Password): Implemented the full three-step password recovery (Forgot Password, Verify Code, Set New Password) with robust email and password validation logic.</p><p>2. Core Navigation (Home Screen): Implemented the main dashboard featuring a personalized greeting (\"Hello, William!\"), an automatic image slider, and categorized course sections.</p><p>3. Search Functionality: Developed the Search Screen with efficient \"prefix match\" search logic and integrated validation to report \"No courses found\" when necessary.</p>"
     }
   ]
 }
