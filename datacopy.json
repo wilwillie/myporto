@@ -6,7 +6,7 @@
     "contacts": {
       "address": "Jl. Taman Daan Mogot Raya No.39, RT.3/RW.1, Tj. Duren Utara, Kec. Grogol petamburan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11470",
       "email": "wensteinwilliam@gmail.com",
-      "personalInterest": "Technologia",
+      "personalInterest": "Data Analytics",
       "mobileNumber": "+6285221218686"
     },
     "resumeUrl": "./assets/docs/CV_ATS_HAIKAL.pdf",
@@ -47,12 +47,12 @@
       "description": "Building analytical models using Python and MATLAB to uncover trends, patterns, and predictions from datasets."
     },
     {
-      "icon": "./assets/images/icon-app.svg",
+      "icon": "./assets/images/icon-dev.svg",
       "title": "Data Visualization & Dashboarding",
       "description": "Creating interactive dashboards and visual reports using Power BI and Tableau for data-driven decision-making."
     },
     {
-      "icon": "./assets/images/icon-photo.svg",
+      "icon": "./assets/images/icon-app.svg",
       "title": "Web & Application Development",
       "description": "Developing responsive websites and analytical tools using HTML, CSS, JS, PHP, and Flutter."
     }

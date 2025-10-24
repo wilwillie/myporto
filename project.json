@@ -2,15 +2,15 @@
   "projects": [
     {
       "id": 1,
-      "name": "Rage2Wars",
-      "description": "A card game inspired by the Japanese game of suit.",
-      "technologies": ["Java Swing", "MySQL", "OOP"],
-      "role": ["Team Leader", "Developer", "Asset builder"],
-      "type": "Games",
-      "thumb": "Rage2wars.png",
-      "gallery":["About.png","tutz1.png", "tutz2.png", "tutz3.png", "gachaBanner.png"],
-      "source": "https://github.com/hycallf/Rage2WarsGame",
-      "longDescription": "<p>Rage2wars is a card-based game inspired by the Japanese suit system. Each player has 4 cards in hand and 20 cards in total in the deck. Each card is assigned an attribute (rock, paper, or scissors) and has both attack and defense points. When a card is played, it is matched against the opponent's card following the rules of rock-paper-scissors. If the player wins the round, the enemy takes damage equal to the difference between the player's attack and the enemy's defense. If the round ends in a draw or loss, the played card is destroyed and sent to the graveyard, and a new card is drawn from the deck.</p><p>The game ends when a player’s life points (LP) are reduced to zero or when their deck is depleted. Upon winning, players are rewarded with gold and experience points (EXP). Gems are granted when the experience bar is full and the player levels up. Gold is used for standard gacha, while diamonds are used for premium gacha pulls.</p>"
+      "name": "Polylingo: Foreign Language Learning App",
+      "description": "A mobile application developed with Flutter/Dart to facilitate interactive, video-based foreign language learning.",
+      "technologies": ["Flutter/Dart", "Figma", "GitHub"],
+      "role": ["Mobile Developer (Flutter/Dart) – Focusing on User Authentication Flow and Core Navigation"],
+      "type": "Mobile",
+      "thumb": "polylingo.png",
+      "gallery": ["polylingo2.png", "polylingo3.png"],
+      "source": "https://www.figma.com/design/30YvuU1bseqYNv4Ar6k9Yd/PengembanganApps?node-id=0-1&t=es7qS9G8N08sv9wl-1",
+      "longDescription": "<p>Polylingo is a mobile learning app developed with Flutter/Dart, focusing on video-based foreign language education.</p><p>FROM DESIGN PROTOTYPE TO LIVE APP: FIDELITY SHOWCASE</p><p>This project demonstrates my ability to translate Figma designs into a functional, pixel-accurate Flutter application. My key contributions focused on:</p><p>1. Secure Authentication Flow (Forgot Password): Implemented the full three-step password recovery (Forgot Password, Verify Code, Set New Password) with robust email and password validation logic.</p><p>2. Core Navigation (Home Screen): Implemented the main dashboard featuring a personalized greeting (\"Hello, William!\"), an automatic image slider, and categorized course sections.</p><p>3. Search Functionality: Developed the Search Screen with efficient \"prefix match\" search logic and integrated validation to report \"No courses found\" when necessary.</p>"
     },
     {
       "id": 2,
