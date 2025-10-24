@@ -2341,3 +2341,61 @@ textarea.form-input::-webkit-resizer {
     to { transform: translateY(0); opacity: 1; }
   }
 }
+
+/*-----------------------------------*\
+  #REVISI SOLUSI: TOMBOL DI DALAM SIDEBAR & SELALU TERLIHAT
+\*-----------------------------------*/
+
+@media (max-width: 767px) {
+  
+  /* PENTING: Atur ulang max-height sidebar. 
+     Nilai 250px ini adalah perkiraan yang lebih besar dari tinggi 
+     konten default (nama, judul, foto) ditambah tinggi tombol resume. 
+     Ini untuk mengakomodasi tombol di bawahnya tanpa 'overflow: hidden'. */
+  .sidebar {
+    max-height: 250px; /* Nilai perkiraan: tinggi default (112px) + tinggi tombol + margin */
+    overflow: hidden; /* Pertahankan overflow:hidden untuk memotong info kontak jika *tidak* diaktifkan. */
+  }
+
+  /* KARENA overflow: hidden MASIH AKTIF, pastikan tombol resume 
+     ada di area yang tidak terpotong, atau pastikan .sidebar-info_more 
+     menggunakan 'height: 0' saat tidak aktif agar tombol naik ke atas. */
+  .sidebar-info_more {
+    opacity: 0;
+    visibility: hidden;
+    height: 0; /* Ini krusial: menghilangkan ruang yang ditempati info kontak saat tersembunyi */
+    margin: 0; /* Pastikan margin juga hilang */
+    padding: 0; /* Pastikan padding juga hilang */
+    transition: var(--transition-2);
+  }
+
+  /* Ketika sidebar aktif (klik 'Show More'), info kontak tampil dan sidebar memanjang */
+  .sidebar.active {
+    max-height: max-content; /* Biarkan memanjang penuh saat aktif */
+  }
+
+  /* Tampilkan info kontak saat aktif */
+  .sidebar.active .sidebar-info_more {
+    opacity: 1;
+    visibility: visible;
+    height: auto; 
+    padding: 25px 0 15px; /* Kembalikan padding / margin default */
+  }
+  
+  /* Pastikan tombol resume selalu terlihat dan menggunakan ruang yang benar */
+  .download-resume-btn {
+      display: flex; 
+      width: 100%;
+      margin-top: 15px; /* Jarak dari konten di atasnya (bisa .info_more-btn atau .sidebar-info_more) */
+      margin-inline: auto;
+  }
+}
+
+/* Khusus untuk rentang 580px - 767px */
+@media (min-width: 580px) and (max-width: 767px) {
+    .sidebar {
+        /* Nilai perkiraan yang lebih besar untuk tablet kecil, 
+           misalnya tinggi default (180px) + tinggi tombol + margin */
+        max-height: 250px; 
+    }
+}
