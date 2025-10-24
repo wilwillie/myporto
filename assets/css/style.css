@@ -1535,9 +1535,6 @@ textarea.form-input::-webkit-resizer {
   background: var(--bg-gradient-jet);
 }
 
-/*-----------------------------------*\
-  #RESPONSIVE
-\*-----------------------------------*/
 .filter-list {
   display: flex; /* Pastikan flex untuk item-item */
   flex-wrap: wrap; /* Biarkan item wrap ke baris baru jika tidak cukup ruang */
@@ -1575,6 +1572,66 @@ textarea.form-input::-webkit-resizer {
 .filter-select-box {
   display: none; /* Sembunyikan di semua ukuran default */
 }
+
+
+/*-----------------------------------*\
+  #CONTACT ALERT STYLING (di style.css)
+\*-----------------------------------*/
+
+.alert-box {
+  /* 1. Posisi Fixed dan Z-Index Tinggi */
+  position: fixed;
+  /* Hapus properti top dan left yang lama */
+  bottom: 30px; /* Jarak 30px dari bawah layar */
+  right: 30px; /* Jarak 30px dari kanan layar */
+  
+  /* Hapus transform, karena tidak diperlukan lagi */
+  transform: none; 
+  z-index: 9999;
+  
+  /* 2. Kondisi Tersembunyi (Default) */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* Penting agar tidak menghalangi klik di belakangnya */
+  transition: all 0.3s ease-in-out; /* Untuk animasi muncul/hilang */
+
+  /* 3. Styling Tampilan */
+  background: var(--eerie-black-1); 
+  border: 1px solid var(--jet);
+  border-radius: 14px;
+  box-shadow: var(--shadow-5);
+  padding: 20px 30px;
+}
+
+/* 4. Kondisi Aktif/Tampil (Ditambahkan oleh JavaScript) */
+.alert-box.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all; 
+  /* Transform: translate(-50%, -50%) tidak perlu diulang jika sudah ada di kondisi default */
+}
+
+/* Styling konten di dalamnya (Opsional, tapi penting) */
+.alert-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.alert-icon {
+  font-size: 24px;
+  color: var(--orange-yellow-crayola); 
+}
+
+.alert-message {
+  color: var(--white-2);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-400);
+}
+
+/*-----------------------------------*\
+  #RESPONSIVE
+\*-----------------------------------*/
 
 /**
  * responsive larger than 450px screen
@@ -2273,72 +2330,6 @@ textarea.form-input::-webkit-resizer {
 
   .timeline-text {
     max-width: 700px;
-  }
-
-  /*===============================
-  Custom Alert Box Styling
-  ================================*/
-  .custom-alert {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 10, 10, 0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    backdrop-filter: blur(4px);
-  }
-
-  .custom-alert.active {
-    display: flex;
-    animation: fadeIn 0.3s ease-in-out forwards;
-  }
-
-  .custom-alert-content {
-    background: var(--eerie-black-2);
-    border: 1px solid var(--jet);
-    border-radius: 14px;
-    padding: 25px 35px;
-    box-shadow: var(--shadow-3);
-    text-align: center;
-    color: var(--white-2);
-    max-width: 350px;
-    width: 90%;
-    animation: slideUp 0.3s ease forwards;
-  }
-
-  .alert-icon {
-    font-size: 48px;
-    color: var(--orange-yellow-crayola);
-    margin-bottom: 15px;
-  }
-
-  .alert-close-btn {
-    background: var(--border-gradient-onyx);
-    color: var(--orange-yellow-crayola);
-    padding: 8px 20px;
-    border-radius: 10px;
-    margin-top: 15px;
-    font-weight: var(--fw-500);
-    transition: var(--transition-1);
-  }
-
-  .alert-close-btn:hover {
-    background: var(--bg-gradient-yellow-1);
-    color: var(--smoky-black);
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
   }
 }
 

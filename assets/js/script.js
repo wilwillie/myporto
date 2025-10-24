@@ -1,7 +1,13 @@
 'use strict';
 
+// ==============================================================================
+// 1. ELEMENT TOGGLE FUNCTION & SIDEBAR
+// ==============================================================================
 
-// element toggle function
+/**
+ * element toggle function
+ * @param {HTMLElement} elem - Element yang akan di-toggle class 'active'-nya.
+ */
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
 // sidebar variables
@@ -9,7 +15,14 @@ const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+if (sidebarBtn) {
+    sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+}
+
+
+// ==============================================================================
+// 2. TESTIMONIALS MODAL
+// ==============================================================================
 
 // testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
@@ -24,206 +37,185 @@ const modalText = document.querySelector("[data-modal-text]");
 
 // modal toggle function
 const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
+    if (modalContainer) modalContainer.classList.toggle("active");
+    if (overlay) overlay.classList.toggle("active");
 }
 
 // add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-  testimonialsItem[i].addEventListener("click", function () {
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-    testimonialsModalFunc();
-  });
+for (let i = 0; i < (testimonialsItem ? testimonialsItem.length : 0); i++) {
+    testimonialsItem[i].addEventListener("click", function () {
+        if (modalImg && modalTitle && modalText) {
+            modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+            modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+            modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+            modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+            testimonialsModalFunc();
+        }
+    });
 }
 
 // add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
-
-
-// filter variables (Dipastikan ini tidak konflik dengan data-loader.js)
-const filterButtons = document.querySelectorAll("[data-filter-btn]");
-const filterSelect = document.querySelector("[data-select]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const selectList = document.querySelector("[data-select-list]");
-// const projectItems = document.querySelectorAll("[data-filter-item]"); // Tidak lagi diperlukan di sini
-
-// add event in all filter button items for large screen
-let lastClickedBtn = filterButtons[0];
-
-for (let i = 0; i < filterButtons.length; i++) {
-  filterButtons[i].addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
-    // Memastikan filterFunc dari data-loader.js sudah tersedia
-    if (typeof filterFunc === 'function') {
-        filterFunc(selectedValue);
-    }
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-  });
+if (modalCloseBtn) {
+    modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 }
-
-// add event in all filter select item for small screen
-if (filterSelect && selectList) { // Periksa keberadaan elemen sebelum menambahkan event
-  filterSelect.addEventListener("click", function () { elementToggleFunc(selectList); });
-
-  // Menggunakan children untuk item dalam select-list
-  // Pastikan filterFunc dari data-loader.js sudah tersedia
-  for (let i = 0; i < selectList.children.length; i++) {
-    selectList.children[i].addEventListener("click", function () {
-      let selectedValue = this.innerText.toLowerCase();
-      selectValue.innerText = this.innerText;
-      if (typeof filterFunc === 'function') {
-        filterFunc(selectedValue);
-      }
-      elementToggleFunc(selectList); // Tutup dropdown setelah memilih
-    });
-  }
+// add click event to overlay
+if (overlay) {
+    overlay.addEventListener("click", testimonialsModalFunc);
 }
 
 
-// contact form variables
+// ==============================================================================
+// 3. CONTACT FORM VARIABLES & VALIDATION
+// ==============================================================================
+
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
-// add event to all form input field for validation check
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
+// add event to all form input fields for validation
+for (let i = 0; i < (formInputs ? formInputs.length : 0); i++) {
+    formInputs[i].addEventListener("input", function () {
+        // Cek validitas semua input
+        const isAllValid = Array.from(formInputs).every(input => input.checkValidity());
+
+        if (formBtn) {
+            if (isAllValid) {
+                formBtn.removeAttribute("disabled");
+            } else {
+                formBtn.setAttribute("disabled", "");
+            }
+        }
+    });
+}
+
+
+// ==============================================================================
+// 4. CUSTOM ALERT SYSTEM (SOLUSI MASALAH ANDA)
+// ==============================================================================
+
+/**
+ * Menampilkan notifikasi alert kustom.
+ * @param {string} message - Pesan yang akan ditampilkan dalam notifikasi.
+ * @param {string} icon - Nama ikon ionicons (e.g., 'checkmark-circle-outline').
+ */
+function showAlert(message, icon) {
+    // Pastikan elemen alertBox ada di DOM
+    const alertBox = document.querySelector("[data-alert]"); 
+    
+    if (!alertBox) {
+        console.error("Elemen notifikasi tidak ditemukan. Pastikan Anda telah menambahkan elemen dengan [data-alert] di index.html.");
+        return; 
     }
-  });
+
+    // Perbarui konten notifikasi
+    const alertIcon = alertBox.querySelector(".alert-icon");
+    const alertMessage = alertBox.querySelector(".alert-message");
+
+    // Lakukan pembaruan hanya jika elemen ada
+    if (alertIcon) alertIcon.name = icon; 
+    if (alertMessage) alertMessage.textContent = message;
+
+    // Tampilkan notifikasi dengan menambahkan class 'active'
+    alertBox.classList.add("active");
+
+    // Sembunyikan notifikasi setelah 4 detik
+    setTimeout(() => {
+        alertBox.classList.remove("active");
+    }, 4000); 
 }
 
-// =============================
-// CUSTOM ALERT SYSTEM
-// =============================
-function showAlert(message, icon = "checkmark-circle-outline") {
-  let alertBox = document.getElementById("customAlert");
 
-  // Buat elemen jika belum ada di DOM
-  if (!alertBox) {
-    alertBox = document.createElement("div");
-    alertBox.id = "customAlert";
-    alertBox.className = "custom-alert";
-    alertBox.innerHTML = `
-      <div class="custom-alert-content">
-        <ion-icon class="alert-icon" name="${icon}"></ion-icon>
-        <p id="alertMessage">${message}</p>
-        <button id="alertCloseBtn" class="alert-close-btn">OK</button>
-      </div>
-    `;
-    document.body.appendChild(alertBox);
-  } else {
-    alertBox.querySelector(".alert-icon").setAttribute("name", icon);
-    alertBox.querySelector("#alertMessage").textContent = message;
-  }
+// ==============================================================================
+// 5. CONTACT FORM SUBMISSION LOGIC (SOLUSI MASALAH ANDA)
+// ==============================================================================
 
-  alertBox.classList.add("active");
+if (form && formBtn) {
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-  const closeBtn = alertBox.querySelector("#alertCloseBtn");
-  closeBtn.onclick = () => {
-    alertBox.classList.remove("active");
-  };
+        // 1. Tampilkan status loading
+        formBtn.innerHTML = '<ion-icon name="sync-outline" class="loader"></ion-icon><span>Mengirim...</span>'; 
+        formBtn.setAttribute("disabled", true);
+        
+        // Ambil data form
+        const formData = new FormData(this);
+        const formObject = Object.fromEntries(formData.entries());
 
-  // Auto close setelah 3 detik
-  setTimeout(() => {
-    alertBox.classList.remove("active");
-  }, 3000);
-}
-
-// FUNGSI KIRIM EMAIL DENGAN FORMSPREE
-if (form) { // Memastikan form elemen ada
-  form.addEventListener("submit", function(event) {
-    event.preventDefault(); // Mencegah form submit default (page refresh)
-
-    // Reset tombol ke disabled saat mulai pengiriman
-    formBtn.setAttribute("disabled", "");
-    formBtn.querySelector("span").textContent = "Sending..."; // Ubah teks tombol
-
-    const formData = new FormData(form);
-    const object = {};
-    formData.forEach((value, key) => {
-      object[key] = value;
-    });
-
-    fetch(form.action, {
-      method: form.method,
-      headers: {
-        'Content-Type': 'application/json', // Penting untuk Formspree dengan JSON
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(object)
-    })
-    .then(response => {
-      if (response.ok) {
-        showAlert("Message sent successfully. Thank you!", "checkmark-circle-outline");
-        form.reset(); // Bersihkan form
-        formBtn.querySelector("span").textContent = "Send Message"; // Kembalikan teks tombol
-        // Tombol tetap disabled karena form kosong
-      } else {
-        response.json().then(data => {
-          if (Object.hasOwnProperty.call(data, 'errors')) {
-            showAlert("Oops! There was a problem sending the message: " + data["errors"].map(error => error["message"]).join(", "), "alert-circle-outline");
-          } else {
-            showAlert("Oops! There was a problem sending your message.", "alert-circle-outline");
-          }
-        }).catch(() => {
-          showAlert("Oops! Server error while sending your message.", "alert-circle-outline");
+        // CONTOH ASUMSI PENGGUNAAN FETCH API
+        // GANTI DENGAN URL DAN OPSI PENGIRIMAN EMAIL ANDA YANG SEBENARNYA
+        fetch("https://formspree.io/f/mrbynrzj", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                // Tambahkan header lain seperti API Key jika diperlukan
+            },
+            body: JSON.stringify(formObject),
+        })
+        .then(response => {
+            // Cek apakah response sukses (status 200-299)
+            if (response.ok) {
+                // 2. Tampilkan notifikasi sukses
+                showAlert("Your message has been sent successfully! Thank you.", "checkmark-circle-outline");
+                this.reset(); // Reset form
+                // Nonaktifkan tombol kembali
+                formBtn.setAttribute("disabled", "");
+            } else {
+                // Jika response tidak OK, lempar error untuk ditangkap di blok catch
+                throw new Error('Failed to send message. Status: ' + response.status);
+            }
+        })
+        .catch(error => {
+            console.error("Submission Error:", error);
+            // 3. Tampilkan notifikasi error
+            showAlert("Sorry, an error occurred while sending the message. Please try again.", "close-circle-outline");
+        })
+        .finally(() => {
+            // 4. Kembalikan tampilan tombol ke normal
+            formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Send Message</span>';
+            // Catatan: Tombol akan tetap disabled sampai ada input baru atau jika submission gagal dan ingin diizinkan mencoba lagi.
+            // Untuk mencoba lagi setelah gagal, Anda bisa menghapus disabled di sini:
+            // if (!success) formBtn.removeAttribute("disabled"); 
         });
-        formBtn.removeAttribute("disabled"); // Aktifkan kembali tombol jika gagal
-        formBtn.querySelector("span").textContent = "Send Message"; // Kembalikan teks tombol
-      }
-    })
-    .catch(error => {
-      showAlert("Oops! There is a connection problem: " + error.message, "alert-circle-outline");
-      formBtn.removeAttribute("disabled"); // Aktifkan kembali tombol jika ada error jaringan
-      formBtn.querySelector("span").textContent = "Send Message"; // Kembalikan teks tombol
     });
-  });
 }
+
+
+// ==============================================================================
+// 6. NAVIGATION & PAGE SWITCH
+// ==============================================================================
 
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
 // add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
+for (let i = 0; i < (navigationLinks ? navigationLinks.length : 0); i++) {
+    navigationLinks[i].addEventListener("click", function () {
 
-    for (let j = 0; j < pages.length; j++) { // Ganti i dengan j untuk loop pages
-      if (this.dataset.pageBtn === pages[j].dataset.page) { // Gunakan data-page-btn
-        pages[j].classList.add("active");
-        navigationLinks[j].classList.add("active"); // Ini mungkin perlu disesuaikan jika index nav dan page tidak sama
-        window.scrollTo(0, 0);
-      } else {
-        pages[j].classList.remove("active");
-      }
-    }
-    // Perbaiki active state navbar link secara terpisah
-    navigationLinks.forEach(link => link.classList.remove('active'));
-    this.classList.add('active');
+        for (let j = 0; j < (pages ? pages.length : 0); j++) { 
+            if (this.dataset.pageBtn === pages[j].dataset.page) { 
+                pages[j].classList.add("active");
+                window.scrollTo(0, 0); // Scroll ke atas
+            } else {
+                pages[j].classList.remove("active");
+            }
+        }
+        
+        // Perbaiki active state navbar link secara terpisah
+        navigationLinks.forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
 
-    // Tambahan: Pastikan tampilan proyek kembali ke list saat berpindah halaman
-    const detailView = document.querySelector('.project-detail-view');
-    const projectListUL = document.querySelector('.project-list');
-    const filterList = document.querySelector('.filter-list');
-    const filterSelectBox = document.querySelector('.filter-select-box');
+        // Tambahan: Pastikan tampilan proyek kembali ke list saat berpindah halaman (jika ada)
+        const detailView = document.querySelector('.project-detail-view');
+        const projectListUL = document.querySelector('.project-list');
+        const filterList = document.querySelector('.filter-list');
+        const filterSelectBox = document.querySelector('.filter-select-box');
 
-    if (detailView && projectListUL) {
-        detailView.style.display = 'none';
-        projectListUL.style.display = 'grid';
-        if (filterList) filterList.style.display = 'flex';
-        if (filterSelectBox) filterSelectBox.style.display = 'block';
-    }
-
-  });
+        if (detailView && projectListUL) {
+            detailView.style.display = 'none';
+            projectListUL.style.display = 'grid';
+            if (filterList) filterList.style.display = 'flex';
+            if (filterSelectBox) filterSelectBox.style.display = 'none';
+        }
+    });
 }
