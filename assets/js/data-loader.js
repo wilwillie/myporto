@@ -282,3 +282,26 @@ function backToList() {
   if (filterSelectBox) filterSelectBox.style.display = 'block'; // Tampilkan kembali filter dropdown
   window.scrollTo(0, 0); // Gulir ke atas halaman saat kembali ke daftar
 }
+
+// ===========================================================
+//  EVENT HANDLER UNTUK TOMBOL FILTER PROJECT
+// ===========================================================
+document.addEventListener('DOMContentLoaded', () => {
+  const filterButtons = document.querySelectorAll('[data-filter-btn]');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Hapus class 'active' dari semua tombol
+      filterButtons.forEach(b => b.classList.remove('active'));
+
+      // Tambahkan 'active' ke tombol yang diklik
+      btn.classList.add('active');
+
+      // Ambil kategori dari atribut data-filter
+      const selectedValue = btn.dataset.filter;
+
+      // Jalankan fungsi filter
+      filterFunc(selectedValue);
+    });
+  });
+});
