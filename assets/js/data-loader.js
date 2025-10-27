@@ -89,7 +89,9 @@ function renderSkills(skills) {
 // --- FUNGSI PEMETAAN UNTUK FILTER BARU ---
 function getFilterCategory(projectType) {
   const typeLower = projectType.toLowerCase();
-
+  if (typeLower.includes('data')) {
+    return 'data';
+  }
   if (typeLower.includes('web')) {
     return 'web';
   }
