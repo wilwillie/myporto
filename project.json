@@ -111,6 +111,18 @@
       "gallery": ["polylingo2.png", "polylingo3.png"],
       "source": "https://www.figma.com/design/30YvuU1bseqYNv4Ar6k9Yd/PengembanganApps?node-id=0-1&t=es7qS9G8N08sv9wl-1",
       "longDescription": "<p>Polylingo is a mobile learning app developed with Flutter/Dart, focusing on video-based foreign language education.</p><p>FROM DESIGN PROTOTYPE TO LIVE APP: FIDELITY SHOWCASE</p><p>This project demonstrates my ability to translate Figma designs into a functional, pixel-accurate Flutter application. My key contributions focused on:</p><p>1. Secure Authentication Flow (Forgot Password): Implemented the full three-step password recovery (Forgot Password, Verify Code, Set New Password) with robust email and password validation logic.</p><p>2. Core Navigation (Home Screen): Implemented the main dashboard featuring a personalized greeting (\"Hello, William!\"), an automatic image slider, and categorized course sections.</p><p>3. Search Functionality: Developed the Search Screen with efficient \"prefix match\" search logic and integrated validation to report \"No courses found\" when necessary.</p>"
+    },
+    {
+    "id": 10,
+    "name": "Simple 2D Platformer: Coin Collection Challenge",
+    "description": "A simple 2D platformer game developed in Unity (C#) focused on core mechanics: persistent coin collection, a conditional win state (collecting 8 coins), and obstacle-based progress reset.",
+    "technologies": ["Unity (C#)", "2D Environment", "Game Physics", "Audio Integration", "Platformer Mechanics"],
+    "role": ["Solo Game Developer – Implemented Core Game Logic, State Management, and Win Conditionals"],
+    "type": "Game",
+    "thumb": "game2d.png",
+    "gallery": ["game2d2.png", "game2d3.png", "game2d4.png"],
+    "source": "https://drive.google.com/file/d/140ivmwLilXw3UWLGXNsmxLMo7WTfohQh/view",
+    "longDescription": "<p>This is a simple 2D platformer project built using Unity and C# to manage all game logic. The core focus of this development was implementing a conditional victory system and robust player state management.</p><p>KEY FEATURES & MECHANICS:<p>1. Conditional Win State: The player can only win the game after successfully collecting 8 coins. If the player touches the 'Finish Flag' without meeting the 8-coin requirement, they are respawned to the original starting point.</p><p>2. Persistent Progress: The respawn mechanism upon touching the flag does not reset the coin count, ensuring player progress is maintained during failed attempts to finish.</p><p>3. Progress Reset Logic: When the player collides with an 'Obstacle', the game triggers a full reset of the coin count back to zero (0), requiring the player to restart the coin collection mission.</p><p>4. Audio & Visual Feedback: Implemented an animation when the player hits an obstacle, and integrated background music (backsound) to enhance the gaming experience.</p>"
     }
   ]
 }
