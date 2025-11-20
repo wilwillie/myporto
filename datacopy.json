@@ -30,7 +30,7 @@
     "about": [
       "<p><strong>Hi! I’m William</strong>, a 3rd-year Computer Science student at <strong>Tarumanagara University</strong> with a strong passion for <em>data analytics</em> and statistical computing.</p>",
       "<p>I enjoy working with data — from cleaning and processing to turning it into meaningful insights that help solve real-world problems.</p>",
-      "<p>I’ve gained hands-on experience using <strong>Python, SQL, and Excel</strong> for data analysis, visualization, and predictive modeling. My main interest lies in how data and technology can be leveraged to optimize business processes and support evidence-based decision-making.</p>",
+      "<p>I’ve gained hands-on experience using <strong>Python, Power BI, and Excel</strong> for data analysis, visualization, and predictive modeling. My main interest lies in how data and technology can be leveraged to optimize business processes and support evidence-based decision-making.</p>",
       "<p>I’m always excited to learn new analytical tools, explore datasets, and contribute to projects that bridge technical understanding with real impact.</p>"
     ]
   },
@@ -49,7 +49,7 @@
     {
       "icon": "./assets/images/icon-dev.svg",
       "title": "Data Visualization & Dashboarding",
-      "description": "Creating interactive dashboards and visual reports using Power BI and Tableau for data-driven decision-making."
+      "description": "Creating interactive dashboards and visual reports using Power BI for data-driven decision-making."
     },
     {
       "icon": "./assets/images/icon-app.svg",
@@ -91,7 +91,7 @@
     ],
     "skills": [
       {
-        "name": "Office & Analytical Tools (Excel, MATLAB, Google Colab, Jupyter)",
+        "name": "Office & Analytical Tools (Excel, Power BI, VSCode, Google Colab, Jupyter, MATLAB)",
         "level": 95
       },
       {
