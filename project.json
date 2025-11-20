@@ -2,11 +2,11 @@
   "projects": [
     {
       "id": 1,
-      "name": "Diabetes Prediction using K-Nearest Neighbors (KNN)",
-      "description": "A machine learning project that classifies diabetes cases using KNN algorithm with preprocessing and performance evaluation.",
-      "technologies": ["MATLAB", "Python", "KNN", "Data Preprocessing", "Confusion Matrix", "Evaluation Metrics"],
+      "name": "FIFA 19 Goalkeeper Classification using PCA and Naïve Bayes",
+      "description": "A project report on the implementation of Principal Component Analysis (PCA) and Naïve Bayes to classify the playing style of goalkeepers (keepers) in the offline FIFA 19 game into 'Offensive' or 'Defensive' categories.",
+      "technologies": ["MATLAB", "KNN", "Principal Component Analysis (PCA)", "Naïve Bayes Classification", "Mahalanobis Distance", "Data Mining"],
       "thumb": "knn.png",
-      "role": "Data Analyst & Model Developer",
+      "role": ["Data Analyst", "Data Scientist"],
       "type": "Data",
       "gallery": ["knn2.png", "knn3.png", "knn4.png", "knn5.png"],
       "source": "https://drive.google.com/file/d/1IfVFJuop5xLXKpR1JxlgKbVamj0oI71k/view",
